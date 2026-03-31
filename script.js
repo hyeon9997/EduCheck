@@ -74,8 +74,8 @@ const selectionRules = [
 ];
 
 const prerequisites = {
-  "일본 문화": ["일본어"],
-  "중국 문화": ["중국어"],
+  "일본문화": ["일본어"],
+  "중국문화": ["중국어"],
   "역학과 에너지": ["물리학"],
   "전자기와 양자": ["물리학"],
   "물질과 에너지": ["화학"],
@@ -131,6 +131,7 @@ function render() {
 // =======================
 // 🔍 검사
 // =======================
+/**
 function runCheck() {
   const checkedIds = [...document.querySelectorAll("input:checked")]
     .map(el => el.value);
@@ -154,24 +155,26 @@ function runCheck() {
     }
   });
 
-  // 2️⃣ 교과군 학점 검사
-  let total = 0;
+  // 2️⃣ ‘기술·가정/정보/제2외국어/한문/교양’ 교과군 학점 검사
+  let selected_total = 0;
 
   selectedSubjects.forEach(s => {
     if (targetGroups.includes(s.group)) {
-      total += Number(s.credit);
+      selected_total += Number(s.credit);
     }
   });
 
-  if (total >= minGroupCredit) {
-    result += `✅ 필수 이수 학점 ${total}/${minGroupCredit} 충족<br>`;
+  if (selected_total >= minGroupCredit) {
+    result += `✅ 필수 이수 학점 ${selected_total}/${minGroupCredit} 충족<br>`;
   } else {
-    result += `❌ 필수 이수 학점 ${total}/${minGroupCredit} 부족<br>`;
+    result += `❌ 필수 이수 학점 ${selected_total}/${minGroupCredit} 부족<br>`;
   }
+
+  
 
   document.getElementById("result").innerHTML = result;
 }
-
+ */
 // 상태 업데이트 함수
 function updateStatus(grade, semester) {
   const rule = selectionRules.find(
@@ -254,23 +257,45 @@ function checkSelectionCount(selectedSubjects) {
   return result;
 }
 
-function checkGroupCredit(selectedSubjects) {
-  const targetGroups = ["기술가정", "정보", "제2외국어", "한문", "교양"];
+function checkGroupCredit_major(selectedSubjects) {
+  const targetGroups = ["국어", "수학", "영어"];
 
-  let total = 0;
+  let selected_total = 67; //우리학교 2026 교육과정 이수 시
 
   selectedSubjects.forEach(sub => {
     if (targetGroups.includes(sub.group)) {
-      total += Number(sub.credit);
+      selected_total += Number(sub.credit);
     }
   });
 
-  if (total >= 16) {
-    return `✅ 선택 교과군 학점 ${total}/16 충족<br>`;
+  if (selected_total <= 81) {
+    return `✅ 국어,수학,영어 교과(군) 이수학점 ${selected_total}/81 충족<br>`;
   } else {
-    return `❌ 선택 교과군 학점 ${total}/16 부족<br>`;
+    return `❌ 국어,수학,영어 교과(군) 이수학점 ${selected_total}/81 초과<br>`;
   }
 }
+
+function checkGroupCredit_minor(selectedSubjects) {
+  const targetGroups = ["기술·가정/정보", "제2외국어/한문", "교양"];
+
+  let selected_total = 0;
+
+  selectedSubjects.forEach(sub => {
+    if (targetGroups.includes(sub.group)) {
+      selected_total += Number(sub.credit);
+    }
+  });
+
+  if (selected_total >= 16) {
+    return `✅ 선택 교과군 학점 ${selected_total}/16 충족<br>`;
+  } else {
+    return `❌ 선택 교과군 학점 ${selected_total}/16 부족<br>`;
+  }
+}
+
+
+
+
 
 function goResult() {
   const checkedIds = [...document.querySelectorAll("input:checked")]
@@ -284,8 +309,10 @@ function goResult() {
   let resultText = "";
 
   resultText += checkSelectionCount(selectedSubjects);
-  resultText += checkGroupCredit(selectedSubjects);
+  resultText += checkGroupCredit_minor(selectedSubjects);
+  resultText += checkGroupCredit_major(selectedSubjects);
   resultText += checkPrerequisites(selectedSubjects);
+
 
   // 📦 결과 + 선택 데이터 같이 저장
   const resultData = {
@@ -299,5 +326,6 @@ function goResult() {
   window.location.href = "result.html";
 }
 
-// 실행
-render();
+window.onload = function() {
+  render();
+};
