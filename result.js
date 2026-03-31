@@ -1,10 +1,10 @@
 const data = JSON.parse(localStorage.getItem("resultData"));
-
+console.log("data:", data);
 const subjects = data.selected;
 const resultText = data.resultText;
 
 // 1️⃣ 조건 결과 출력
-document.getElementById("summary").innerHTML = resultText;
+document.getElementById("summary").innerHTML = data.resultText;
 
 // 2️⃣ 학기별 과목 정리
 const grouped = {};
