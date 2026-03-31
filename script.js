@@ -165,9 +165,9 @@ function runCheck() {
   });
 
   if (selected_total >= minGroupCredit) {
-    result += `✅ 필수 이수 학점 ${selected_total}/${minGroupCredit} 충족<br>`;
+    result += `✅ 기술·가정/정보/제2외국어/한문/교양 교과군 이수 학점 ${selected_total}/${minGroupCredit} 충족<br>`;
   } else {
-    result += `❌ 필수 이수 학점 ${selected_total}/${minGroupCredit} 부족<br>`;
+    result += `❌ 기술·가정/정보/제2외국어/한문/교양 교과군 이수 학점 ${selected_total}/${minGroupCredit} 부족<br>`;
   }
 
   
