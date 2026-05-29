@@ -74,8 +74,6 @@ const selectionRules = [
 ];
 
 const prerequisites = {
-  "일본 문화": ["일본어"],
-  "중국 문화": ["중국어"],
   "역학과 에너지": ["물리학"],
   "전자기와 양자": ["물리학"],
   "물질과 에너지": ["화학"],
@@ -269,7 +267,7 @@ function checkGroupCredit_minor(selectedSubjects) {
   if (selected_total >= 16) {
     return `✅ 기술·가정/정보, 제2외국어/한문, 교양 교과(군) 학점 충족<br>`;
   } else {
-    return `❌ 기술·가정/정보, 제2외국어/한문, 교양 교과(군) ${9-selected_total}학점 부족<br>`;
+    return `❌ 기술·가정/정보, 제2외국어/한문, 교양 교과(군) ${10-selected_total}학점 부족<br>`;
   }
 }
 
