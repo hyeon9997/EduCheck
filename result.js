@@ -19,21 +19,24 @@ subjects.forEach(s => {
   grouped[key].push(s);
 });
 
-// 출력
 const subjectDiv = document.getElementById("subjectList");
 
-for (let key in grouped) {
+// 학기 순서 정렬
+const orderedKeys = Object.keys(grouped).sort();
+
+orderedKeys.forEach(key => {
 
   const [g, s] = key.split("-");
 
   subjectDiv.innerHTML += `
-    <div class="result-section">
 
-      <h3>${g}학년 ${s}학기</h3>
+    <div class="term">
+
+      <h2>${g}학년 ${s}학기</h2>
 
       <div class="table-wrap">
 
-        <table class="result-table">
+        <table class="subject-table result-table">
 
           <thead>
             <tr>
@@ -69,4 +72,4 @@ for (let key in grouped) {
 
   });
 
-}
+});
