@@ -74,8 +74,8 @@ const selectionRules = [
 ];
 
 const prerequisites = {
-  "일본 문화": ["일본어"],
-  "중국 문화": ["중국어"],
+  "일본문화": ["일본어"],
+  "중국문화": ["중국어"],
   "역학과 에너지": ["물리학"],
   "전자기와 양자": ["물리학"],
   "물질과 에너지": ["화학"],
@@ -96,35 +96,76 @@ function render() {
   const container = document.getElementById("container");
 
   selectionRules.forEach(rule => {
+
     const termDiv = document.createElement("div");
     termDiv.className = "term";
 
+    // 제목
     const title = document.createElement("h2");
     title.innerText = `${rule.grade}학년 ${rule.semester}학기 (택 ${rule.count})`;
     termDiv.appendChild(title);
 
+    // 상태 표시
     const status = document.createElement("div");
     status.id = `status-${rule.grade}-${rule.semester}`;
-    status.innerText = "선택: 0/" + rule.count;
+    status.className = "status";
+    status.innerText = `선택: 0/${rule.count}`;
     termDiv.appendChild(status);
 
+    // 과목 필터
     const filtered = subjects.filter(
-      s => s.grade === rule.grade && s.semester === rule.semester
+      s => s.grade === rule.grade &&
+           s.semester === rule.semester
     );
 
+    // ======================
+    // 📋 테이블 생성
+    // ======================
+
+    const table = document.createElement("table");
+    table.className = "subject-table";
+
+    table.innerHTML = `
+      <thead>
+        <tr>
+          <th>선택</th>
+          <th>교과군</th>
+          <th>과목명</th>
+          <th>유형</th>
+          <th>학점</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    `;
+
+    const tbody = table.querySelector("tbody");
+
     filtered.forEach(sub => {
-      const label = document.createElement("label");
 
-      label.innerHTML = `
-        <input type="checkbox" value="${sub.id}" 
-        onchange="updateStatus(${rule.grade}, ${rule.semester})">
-        <span>${sub.name} (${sub.group}, ${sub.credit}학점)</span>
-        `;
+      const tr = document.createElement("tr");
 
-      termDiv.appendChild(label);
+      tr.innerHTML = `
+        <td>
+          <input
+            type="checkbox"
+            value="${sub.id}"
+            onchange="updateStatus(${rule.grade}, ${rule.semester})"
+          >
+        </td>
+        <td>${sub.group}</td>
+        <td>${sub.name}</td>
+        <td>${sub.type}</td>
+        <td>${sub.credit}</td>
+      `;
+
+      tbody.appendChild(tr);
+
     });
 
+    termDiv.appendChild(table);
+
     container.appendChild(termDiv);
+
   });
 }
 
@@ -256,7 +297,7 @@ function checkSelectionCount(selectedSubjects) {
 
   return result;
 }
-
+/** 
 function checkGroupCredit_major(selectedSubjects) {
   const targetGroups = ["국어", "수학", "영어"];
 
@@ -274,11 +315,11 @@ function checkGroupCredit_major(selectedSubjects) {
     return `❌ 국어,수학,영어 교과(군) 이수학점 ${selected_total}/81 초과<br>`;
   }
 }
-
+*/
 function checkGroupCredit_minor(selectedSubjects) {
   const targetGroups = ["기술·가정/정보", "제2외국어/한문", "교양"];
 
-  let selected_total = 0;
+  let selected_total = 6;
 
   selectedSubjects.forEach(sub => {
     if (targetGroups.includes(sub.group)) {
@@ -287,9 +328,9 @@ function checkGroupCredit_minor(selectedSubjects) {
   });
 
   if (selected_total >= 16) {
-    return `✅ 선택 교과군 학점 ${selected_total}/16 충족<br>`;
+    return `✅ 기술·가정/정보, 제2외국어/한문, 교양 교과(군) 학점 ${selected_total}/16 충족<br>`;
   } else {
-    return `❌ 선택 교과군 학점 ${selected_total}/16 부족<br>`;
+    return `❌ 기술·가정/정보, 제2외국어/한문, 교양 교과(군) 학점 ${selected_total}/16 부족<br>`;
   }
 }
 
