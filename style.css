@@ -153,5 +153,33 @@ button:hover {
 .helper-btn:hover {
   background: #1d4ed8;
   transform: translateY(-2px);
+
+.guide-box {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border: 1px solid #e5e7eb;
+}
+
+.guide-box h4 {
+  margin: 10px 0;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+
+  .guide-box {
+    padding: 16px;
+  }
+
+  .guide-box h4 {
+    font-size: 14px;
+  }
+
+}
 }
 
