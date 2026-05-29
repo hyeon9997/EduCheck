@@ -297,25 +297,7 @@ function checkSelectionCount(selectedSubjects) {
 
   return result;
 }
-/** 
-function checkGroupCredit_major(selectedSubjects) {
-  const targetGroups = ["국어", "수학", "영어"];
 
-  let selected_total = 67; //우리학교 2026 교육과정 이수 시
-
-  selectedSubjects.forEach(sub => {
-    if (targetGroups.includes(sub.group)) {
-      selected_total += Number(sub.credit);
-    }
-  });
-
-  if (selected_total <= 81) {
-    return `✅ 국어,수학,영어 교과(군) 이수학점 ${selected_total}/81 충족<br>`;
-  } else {
-    return `❌ 국어,수학,영어 교과(군) 이수학점 ${selected_total}/81 초과<br>`;
-  }
-}
-*/
 function checkGroupCredit_minor(selectedSubjects) {
   const targetGroups = ["기술·가정/정보", "제2외국어/한문", "교양"];
 
