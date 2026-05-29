@@ -21,11 +21,32 @@ const subjectDiv = document.getElementById("subjectList");
 for (let key in grouped) {
   const [g, s] = key.split("-");
 
-  subjectDiv.innerHTML += `<h3>${g}학년 ${s}학기</h3>`;
+  subjectDiv.innerHTML += `
+    <h3>${g}학년 ${s}학기</h3>
+
+    <table class="result-table">
+      <thead>
+        <tr>
+          <th>교과군</th>
+          <th>과목명</th>
+          <th>유형</th>
+          <th>학점</th>
+        </tr>
+      </thead>
+      <tbody id="tbody-${key}"></tbody>
+    </table>
+  `;
+
+  const tbody = document.getElementById(`tbody-${key}`);
 
   grouped[key].forEach(sub => {
-    subjectDiv.innerHTML += `
-      <div>- ${sub.name} (${sub.group}, ${sub.credit}학점)</div>
+    tbody.innerHTML += `
+      <tr>
+        <td>${sub.group}</td>
+        <td>${sub.name}</td>
+        <td>${sub.type}</td>
+        <td>${sub.credit}</td>
+      </tr>
     `;
   });
 }
