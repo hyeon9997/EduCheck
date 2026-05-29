@@ -350,8 +350,7 @@ function goResult() {
   let resultText = "";
 
   resultText += checkSelectionCount(selectedSubjects);
-  resultText += checkGroupCredit_minor(selectedSubjects);
-  resultText += checkGroupCredit_major(selectedSubjects);
+
   resultText += checkPrerequisites(selectedSubjects);
 
 
