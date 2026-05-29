@@ -1,45 +1,63 @@
 const data = JSON.parse(localStorage.getItem("resultData"));
-console.log("data:", data);
+
 const subjects = data.selected;
 const resultText = data.resultText;
 
-// 1️⃣ 조건 결과 출력
-document.getElementById("summary").innerHTML = data.resultText;
+// 결과 출력
+document.getElementById("summary").innerHTML = resultText;
 
-// 2️⃣ 학기별 과목 정리
+// 학기별 그룹화
 const grouped = {};
 
 subjects.forEach(s => {
   const key = `${s.grade}-${s.semester}`;
-  if (!grouped[key]) grouped[key] = [];
+
+  if (!grouped[key]) {
+    grouped[key] = [];
+  }
+
   grouped[key].push(s);
 });
 
-// 3️⃣ 과목 출력
+// 출력
 const subjectDiv = document.getElementById("subjectList");
 
 for (let key in grouped) {
+
   const [g, s] = key.split("-");
 
   subjectDiv.innerHTML += `
-    <h3>${g}학년 ${s}학기</h3>
+    <div class="result-section">
 
-    <table class="result-table">
-      <thead>
-        <tr>
-          <th>교과군</th>
-          <th>과목명</th>
-          <th>유형</th>
-          <th>학점</th>
-        </tr>
-      </thead>
-      <tbody id="tbody-${key}"></tbody>
-    </table>
+      <h3>${g}학년 ${s}학기</h3>
+
+      <div class="table-wrap">
+
+        <table class="result-table">
+
+          <thead>
+            <tr>
+              <th>교과군</th>
+              <th>과목명</th>
+              <th>유형</th>
+              <th>학점</th>
+            </tr>
+          </thead>
+
+          <tbody id="tbody-${key}">
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
   `;
 
   const tbody = document.getElementById(`tbody-${key}`);
 
   grouped[key].forEach(sub => {
+
     tbody.innerHTML += `
       <tr>
         <td>${sub.group}</td>
@@ -48,5 +66,7 @@ for (let key in grouped) {
         <td>${sub.credit}</td>
       </tr>
     `;
+
   });
+
 }
