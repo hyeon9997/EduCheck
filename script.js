@@ -172,50 +172,7 @@ function render() {
 // =======================
 // 🔍 검사
 // =======================
-/**
-function runCheck() {
-  const checkedIds = [...document.querySelectorAll("input:checked")]
-    .map(el => el.value);
 
-  const selectedSubjects = subjects.filter(s =>
-    checkedIds.includes(s.id)
-  );
-
-  let result = "";
-
-  // 1️⃣ 학기별 선택 검사
-  selectionRules.forEach(rule => {
-    const count = selectedSubjects.filter(
-      s => s.grade === rule.grade && s.semester === rule.semester
-    ).length;
-
-    if (count === rule.count) {
-      result += `✅ ${rule.grade}-${rule.semester} 선택 충족 (${count}/${rule.count})<br>`;
-    } else {
-      result += `❌ ${rule.grade}-${rule.semester} 선택 부족 (${count}/${rule.count})<br>`;
-    }
-  });
-
-  // 2️⃣ ‘기술·가정/정보/제2외국어/한문/교양’ 교과군 학점 검사
-  let selected_total = 0;
-
-  selectedSubjects.forEach(s => {
-    if (targetGroups.includes(s.group)) {
-      selected_total += Number(s.credit);
-    }
-  });
-
-  if (selected_total >= minGroupCredit) {
-    result += `✅ 기술·가정/정보/제2외국어/한문/교양 교과군 이수 학점 ${selected_total}/${minGroupCredit} 충족<br>`;
-  } else {
-    result += `❌ 기술·가정/정보/제2외국어/한문/교양 교과군 이수 학점 ${selected_total}/${minGroupCredit} 부족<br>`;
-  }
-
-  
-
-  document.getElementById("result").innerHTML = result;
-}
- */
 // 상태 업데이트 함수
 function updateStatus(grade, semester) {
   const rule = selectionRules.find(
@@ -315,10 +272,6 @@ function checkGroupCredit_minor(selectedSubjects) {
     return `❌ 기술·가정/정보, 제2외국어/한문, 교양 교과(군) 학점 ${selected_total}/16 부족<br>`;
   }
 }
-
-
-
-
 
 function goResult() {
   const checkedIds = [...document.querySelectorAll("input:checked")]
