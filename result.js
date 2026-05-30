@@ -74,3 +74,14 @@ subjectDiv.innerHTML += `
   });
 
 });
+html2canvas(document.getElementById("resultArea"))
+  .then(canvas => {
+    canvas.toBlob(blob => {
+      const file = new File([blob], "result.png");
+
+      navigator.share({
+        files: [file],
+        title: "과목선택 결과"
+      });
+    });
+  });
