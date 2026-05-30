@@ -1,11 +1,21 @@
 <link rel="stylesheet" href="style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<h1>📊 결과</h1>
 
-<h2>✅ 조건 충족 여부</h2>
-<div id="summary"></div>
+<div id="resultArea">
 
-<h2>📚 선택 과목</h2>
-<div id="subjectList"></div>
+  <h1>📊 결과</h1>
+  <h2>과목 선택 기준을 만족했는지 확인 후, "결과 공유하기"로 저장해주세요.</h2>
+  <h2>✅ 조건 충족 여부</h2>
+  <div id="summary"></div>
+
+  <h2>📚 선택 과목</h2>
+  <div id="subjectList"></div>
+
+</div>
+
+<button onclick="shareResult()" class="share-btn">
+📤 결과 공유하기
+</button>
+
 <script src="result.js"></script>
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
