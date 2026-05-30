@@ -85,3 +85,38 @@ html2canvas(document.getElementById("resultArea"))
       });
     });
   });
+async function shareResult() {
+
+  const target = document.getElementById("resultArea");
+
+  const canvas = await html2canvas(target, {
+    scale: 2
+  });
+
+  canvas.toBlob(async (blob) => {
+
+    const file = new File(
+      [blob],
+      "course-result.png",
+      { type: "image/png" }
+    );
+
+    try {
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+
+        await navigator.share({
+          title: "과목선택 결과",
+          text: "나의 과목선택 결과",
+          files: [file]
+        });
+
+      } else {
+        alert("이 기기는 이미지 공유를 지원하지 않습니다.");
+      }
+
+    } catch (e) {
+      console.log(e);
+    }
+
+  });
+}
