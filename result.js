@@ -28,34 +28,35 @@ orderedKeys.forEach(key => {
 
   const [g, s] = key.split("-");
 
-  subjectDiv.innerHTML += `
+subjectDiv.innerHTML += `
+  <div class="term">
 
-    <div class="term">
+    <h2>${g}학년 ${s}학기</h2>
 
-      <h2>${g}학년 ${s}학기</h2>
-
-      <div class="table-wrap">
-
-        <table class="subject-table result-table">
-
-          <thead>
-            <tr>
-              <th>교과군</th>
-              <th>과목명</th>
-              <th>유형</th>
-              <th>학점</th>
-            </tr>
-          </thead>
-
-          <tbody id="tbody-${key}">
-          </tbody>
-
-        </table>
-
-      </div>
-
+    <div class="status">
+      선택: ${grouped[key].length}과목
     </div>
-  `;
+
+    <div class="table-wrap">
+      <table class="subject-table">
+
+        <thead>
+          <tr>
+            <th>교과군</th>
+            <th>과목명</th>
+            <th>유형</th>
+            <th>학점</th>
+          </tr>
+        </thead>
+
+        <tbody id="tbody-${key}">
+        </tbody>
+
+      </table>
+    </div>
+
+  </div>
+`;
 
   const tbody = document.getElementById(`tbody-${key}`);
 
