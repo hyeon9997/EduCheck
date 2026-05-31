@@ -101,6 +101,7 @@ async function shareResult() {
 
   document.body.appendChild(link);
   link.click();
+  alert("이미지가 생성되었습니다. 다운로드가 안 되면 크롬 또는 삼성 인터넷에서 이용해주세요.");
   document.body.removeChild(link);
 
 }
