@@ -90,33 +90,17 @@ async function shareResult() {
   const target = document.getElementById("resultArea");
 
   const canvas = await html2canvas(target, {
-    scale: 2
+    scale: 2,
+    useCORS: true
   });
 
-  canvas.toBlob(async (blob) => {
+  const link = document.createElement("a");
 
-    const file = new File(
-      [blob],
-      "course-result.png",
-      { type: "image/png" }
-    );
+  link.download = "과목선택결과.png";
+  link.href = canvas.toDataURL("image/png");
 
-    try {
-      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 
-        await navigator.share({
-          title: "과목선택 결과",
-          text: "나의 과목선택 결과",
-          files: [file]
-        });
-
-      } else {
-        alert("이 기기는 이미지 공유를 지원하지 않습니다.");
-      }
-
-    } catch (e) {
-      console.log(e);
-    }
-
-  });
 }
