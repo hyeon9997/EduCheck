@@ -101,7 +101,7 @@ function render() {
     // 제목
     const title = document.createElement("h2");
     if(rule.grade == 3){
-      title.innerText = `${rule.grade}학년 ${rule.semester}학기 (택 ${rule.count}-2학년때 수강신청합니다.)`;  
+      title.innerText = `${rule.grade}학년 ${rule.semester}학기 (택 ${rule.count})(2학년때 수강신청합니다.)`;  
     }else{
       title.innerText = `${rule.grade}학년 ${rule.semester}학기 (택 ${rule.count})`;
     }
