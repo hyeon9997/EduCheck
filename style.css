@@ -26,7 +26,6 @@ body {
   padding: 20px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
-
 /* 제목 */
 h2 {
   margin-top: 0;
@@ -220,12 +219,12 @@ button:hover {
 .subject-table {
   width: 100%;
   table-layout: fixed;
-  word-break: break-word;
+  word-break: keep-word;
 }
 
 .subject-table th,
 .subject-table td {
-  font-size: 11px;
+  font-size: 14px;
   padding: 3px;
 }
 
@@ -286,8 +285,6 @@ button:hover {
     font-size: 15px;
     padding: 14px;
   }
-  .subject-table {
-  min-width: 500px;
-}
+  
 
 }
