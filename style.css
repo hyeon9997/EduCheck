@@ -218,7 +218,7 @@ button:hover {
 
   /* 모바일 표 */
 .subject-table {
-  min-width: 500px;
+  min-width: 400px;
   table-layout: fixed;
 }
 
@@ -239,6 +239,12 @@ button:hover {
 }
 .subject-table input[type="checkbox"] {
   transform: scale(1);
+}
+.subject-table th:nth-child(3),
+.subject-table td:nth-child(3) {
+  width: 80px;
+  max-width: 80px;
+  padding: 4px;
 }
 .subject-table th:nth-child(4),
 .subject-table td:nth-child(4) {
