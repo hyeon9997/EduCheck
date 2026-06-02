@@ -230,7 +230,16 @@ button:hover {
   word-break: break-all;
   line-height: 1.2;
 }
-
+  /* 선택 칸 */
+.subject-table th:nth-child(1),
+.subject-table td:nth-child(1) {
+  width: 40px;
+  max-width: 40px;
+  padding: 4px;
+}
+.subject-table input[type="checkbox"] {
+  transform: scale(1);
+}
   /* 결과표 */
   .result-section {
     padding: 14px;
