@@ -248,10 +248,13 @@ button:hover {
     font-size: 15px;
     padding: 14px;
   }
-  .subject-table td:nth-child(2),
-.result-table td:nth-child(1) {
+  .subject-table {
+  min-width: 500px;
+}
+
+.subject-table td:nth-child(2),
+.subject-table th:nth-child(2) {
+  width: 80px;
   white-space: normal;
-  word-break: keep-all;
-  line-height: 1.3;
 }
 }
