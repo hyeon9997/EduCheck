@@ -185,6 +185,7 @@ button:hover {
 /* ===================== */
 
 @media (max-width: 768px) {
+  
 
   body {
     padding: 12px;
@@ -247,5 +248,10 @@ button:hover {
     font-size: 15px;
     padding: 14px;
   }
-
+  .subject-table td:nth-child(2),
+.result-table td:nth-child(1) {
+  white-space: normal;
+  word-break: keep-all;
+  line-height: 1.3;
+}
 }
