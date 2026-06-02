@@ -216,46 +216,56 @@ button:hover {
     font-size: 14px;
   }
 
-  /* 모바일 표 */
+/* 모바일 표 */
 .subject-table {
-  min-width: 140px;
+  width: 100%;
   table-layout: fixed;
+  word-break: break-word;
 }
+
+.subject-table th,
+.subject-table td {
+  font-size: 11px;
+  padding: 3px;
+}
+
+/* 선택 */
 .subject-table th:nth-child(1),
 .subject-table td:nth-child(1) {
-  width: 20px;
-  max-width: 20px;
-  padding: 2px;
+  width: 8%;
 }
-.subject-table input[type="checkbox"] {
-  transform: scale(1);
-}
+
+/* 교과군 */
 .subject-table th:nth-child(2),
 .subject-table td:nth-child(2) {
-  width: 30px;
-  max-width: 30px;
+  width: 18%;
   white-space: normal;
-  word-break: keep-all;
-  line-height: 1.2;
+  line-height: 1.1;
 }
+
+/* 과목명 */
 .subject-table th:nth-child(3),
 .subject-table td:nth-child(3) {
-  width: 50px;
-  max-width: 50px;
-  padding: 4px;
+  width: 46%;
+  white-space: normal;
 }
+
+/* 유형 */
 .subject-table th:nth-child(4),
 .subject-table td:nth-child(4) {
-  width: 20px;
-  max-width: 20px;
-  padding: 2px;
+  width: 14%;
 }
+
+/* 학점 */
 .subject-table th:nth-child(5),
 .subject-table td:nth-child(5) {
-  width: 20px;
-  max-width: 20px;
-  padding: 2px;
+  width: 14%;
 }
+
+.subject-table input[type="checkbox"] {
+  transform: scale(0.9);
+}
+  
   /* 결과표 */
   .result-section {
     padding: 14px;
