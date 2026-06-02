@@ -219,7 +219,7 @@ button:hover {
 .subject-table {
   width: 100%;
   table-layout: fixed;
-  word-break: keep-word;
+  word-break: keep-all;
 }
 
 .subject-table th,
@@ -232,7 +232,7 @@ button:hover {
 .subject-table th:nth-child(1),
 .subject-table td:nth-child(1) {
   width: 8%;
-  word-break: keep-word
+  word-break: keep-all
 }
 
 /* 교과군 */
@@ -241,7 +241,7 @@ button:hover {
   width: 18%;
   white-space: normal;
   line-height: 1.1;
-  word-break: keep-word
+  word-break: keep-all
 }
 
 /* 과목명 */
@@ -249,7 +249,7 @@ button:hover {
 .subject-table td:nth-child(3) {
   width: 46%;
   white-space: normal;
-  word-break: keep-word
+  word-break: keep-all
 }
 
 /* 유형 */
@@ -281,7 +281,6 @@ button:hover {
   .result-table td {
     padding: 8px;
     font-size: 13px;
-    white-space: nowrap;
   }
 
 /* 교과군 */
@@ -290,7 +289,7 @@ button:hover {
   width: 30%;
   white-space: normal;
   line-height: 1.1;
-  word-break: keep-word
+  word-break: keep-all
 }
 
 /* 과목명 */
@@ -298,7 +297,7 @@ button:hover {
 .result-table td:nth-child(2) {
   width: 50%;
   white-space: normal;
-  word-break: keep-word
+  word-break: keep-all
 }
 
 /* 유형 */
