@@ -240,6 +240,18 @@ button:hover {
 .subject-table input[type="checkbox"] {
   transform: scale(1);
 }
+.subject-table th:nth-child(4),
+.subject-table td:nth-child(4) {
+  width: 40px;
+  max-width: 40px;
+  padding: 4px;
+}
+  .subject-table th:nth-child(5),
+.subject-table td:nth-child(5) {
+  width: 40px;
+  max-width: 40px;
+  padding: 4px;
+}
   /* 결과표 */
   .result-section {
     padding: 14px;
