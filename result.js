@@ -38,7 +38,7 @@ subjectDiv.innerHTML += `
     </div>
 
     <div class="table-wrap">
-      <table class="subject-table">
+      <table class="result-table">
 
         <thead>
           <tr>
