@@ -218,7 +218,7 @@ button:hover {
 
   /* 모바일 표 */
 .subject-table {
-  min-width: 400px;
+  min-width: 140px;
   table-layout: fixed;
 }
 .subject-table th:nth-child(1),
@@ -232,16 +232,16 @@ button:hover {
 }
 .subject-table th:nth-child(2),
 .subject-table td:nth-child(2) {
-  width: 40px;
-  max-width: 40px;
+  width: 30px;
+  max-width: 30px;
   white-space: normal;
   word-break: keep-all;
   line-height: 1.2;
 }
 .subject-table th:nth-child(3),
 .subject-table td:nth-child(3) {
-  width: 60px;
-  max-width: 60px;
+  width: 50px;
+  max-width: 50px;
   padding: 4px;
 }
 .subject-table th:nth-child(4),
