@@ -281,7 +281,7 @@ button:hover {
 /* 교과군 */
 .result-table th:nth-child(1),
 .result-table td:nth-child(1) {
-  width: 30%;
+  width: 20%;
   white-space: normal;
   line-height: 1.1;
   word-break: keep-all
@@ -298,13 +298,13 @@ button:hover {
 /* 유형 */
 .result-table th:nth-child(3),
 .result-table td:nth-child(3) {
-  width: 10%;
+  width: 15%;
 }
 
 /* 학점 */
 .result-table th:nth-child(4),
 .result-table td:nth-child(4) {
-  width: 10%;
+  width: 15%;
 }
 
   button {
