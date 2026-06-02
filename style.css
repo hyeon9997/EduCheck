@@ -284,6 +284,35 @@ button:hover {
     white-space: nowrap;
   }
 
+/* 교과군 */
+.result-table th:nth-child(2),
+.result-table td:nth-child(2) {
+  width: 30%;
+  white-space: normal;
+  line-height: 1.1;
+  word-break: keep-word
+}
+
+/* 과목명 */
+.result-table th:nth-child(3),
+.result-table td:nth-child(3) {
+  width: 50%;
+  white-space: normal;
+  word-break: keep-word
+}
+
+/* 유형 */
+.result-table th:nth-child(4),
+.result-table td:nth-child(4) {
+  width: 10%;
+}
+
+/* 학점 */
+.result-table th:nth-child(5),
+.result-table td:nth-child(5) {
+  width: 10%;
+}
+
   button {
     font-size: 15px;
     padding: 14px;
