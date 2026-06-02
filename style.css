@@ -232,6 +232,7 @@ button:hover {
 .subject-table th:nth-child(1),
 .subject-table td:nth-child(1) {
   width: 8%;
+  word-break: keep-word
 }
 
 /* 교과군 */
@@ -240,6 +241,7 @@ button:hover {
   width: 18%;
   white-space: normal;
   line-height: 1.1;
+  word-break: keep-word
 }
 
 /* 과목명 */
@@ -247,6 +249,7 @@ button:hover {
 .subject-table td:nth-child(3) {
   width: 46%;
   white-space: normal;
+  word-break: keep-word
 }
 
 /* 유형 */
