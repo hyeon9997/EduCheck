@@ -224,10 +224,10 @@ button:hover {
 
 .subject-table th:nth-child(2),
 .subject-table td:nth-child(2) {
-  width: 70px;
-  max-width: 70px;
+  width: 40px;
+  max-width: 40px;
   white-space: normal;
-  word-break: break-all;
+  word-break: keep-all;
   line-height: 1.2;
 }
   /* 선택 칸 */
