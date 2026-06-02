@@ -217,16 +217,19 @@ button:hover {
   }
 
   /* 모바일 표 */
-  .subject-table {
-    min-width: 600px;
-  }
+.subject-table {
+  min-width: 500px;
+  table-layout: fixed;
+}
 
-  .subject-table th,
-  .subject-table td {
-    font-size: 13px;
-    padding: 8px;
-    white-space: nowrap;
-  }
+.subject-table th:nth-child(2),
+.subject-table td:nth-child(2) {
+  width: 70px;
+  max-width: 70px;
+  white-space: normal;
+  word-break: break-all;
+  line-height: 1.2;
+}
 
   /* 결과표 */
   .result-section {
@@ -252,9 +255,4 @@ button:hover {
   min-width: 500px;
 }
 
-.subject-table td:nth-child(2),
-.subject-table th:nth-child(2) {
-  width: 80px;
-  white-space: normal;
-}
 }
