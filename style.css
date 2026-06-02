@@ -149,17 +149,11 @@ button:hover {
   margin-bottom: 12px;
 }
 
-/* 가로 스크롤 */
-.table-wrap {
-  overflow-x: auto;
-}
-
 /* 결과 테이블 */
 .result-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
-  min-width: 550px;
 }
 
 .result-table th,
