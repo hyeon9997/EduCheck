@@ -59,7 +59,7 @@ const subjects = [
   { id: "S52", grade: 3, semester: 2, group: "과학", type:"융합", name: "과학의 역사와 문화", credit: 3 }, 
   { id: "S53", grade: 3, semester: 2, group: "과학", type:"융합", name: "기후변화와 환경생태", credit: 3 }, 
   { id: "S54", grade: 3, semester: 2, group: "과학", type:"융합", name: "융합과학 탐구", credit: 3 }, 
-  { id: "S55", grade: 3, semester: 2, group: "기술·가정/ 정보", type:"진로", name: "사물인터넷", credit: 3 }, 
+  { id: "S55", grade: 3, semester: 2, group: "기술·가정/ 정보", type:"진로", name: "인공지능 융합 프로젝트", credit: 3 }, 
 
 ];
 
